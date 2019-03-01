@@ -9,15 +9,14 @@
 	
 	<page pageName="minePage">
 		<!--Locator lists -->
-		<locator type="id" timeOut="3" value="icon_user">用户头像</locator>
-		<locator type="id" timeOut="3" value="user_name">用户名</locator>						
+		<locator type="id" timeOut="3" value="passpord">修改密码</locator>
 	</page>
 		
 	<page pageName="loginPage">
 		<!--Locator lists -->
-		<locator type="id" timeOut="30" value="txtuser">登录输入账号框</locator>
-		<locator type="id" timeOut="30" value="txtuserp">登录输入密码框</locator>
-		<locator type="id" timeOut="30" value="btnLogin">登录</locator>
-		<locator type="id" timeOut="30" value="spanMessge">错误提示</locator>
+		<locator type="id" timeOut="30" value="passport">登录输入账号框</locator>
+		<locator type="id" timeOut="30" value="password">登录输入密码框</locator>
+		<locator type="id" timeOut="30" value="send">登录</locator>
+		<locator type="id" timeOut="30" value="warnDiv">错误提示</locator>
 	</page>
 </map>

@@ -10,7 +10,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.core.config.ConfigurationSource;
 import org.apache.logging.log4j.core.config.Configurator;
-import org.apache.log4j.PropertyConfigurator;
+//import org.apache.log4j.PropertyConfigurator;
 
 public class LogUtil {
 	
@@ -22,32 +22,32 @@ public class LogUtil {
 //		this.Load_Class = Class.forName(classname);
 //	}
 	
-    private void InitLog4jConfig() {  
-        Properties props = null;  
-        FileInputStream fis = null;  
-        try {  
-            // 从配置文件dbinfo.properties中读取配置信息 
-            props = new Properties();  
-            fis = new FileInputStream("config/log4j.properties");  
-            props.load(fis);  
-            PropertyConfigurator.configure(props);//装入log4j配置信息  
-        } catch (Exception e) {  
-            e.printStackTrace();  
-        } finally {  
-            if (fis != null)  
-                try {  
-                    fis.close();  
-                } catch (IOException e) {  
-                    e.printStackTrace();  
-                }  
-            fis = null;  
-        }  
-    }
+//    private void InitLog4jConfig() {  
+//        Properties props = null;  
+//        FileInputStream fis = null;  
+//        try {  
+//            // 从配置文件dbinfo.properties中读取配置信息 
+//            props = new Properties();  
+//            fis = new FileInputStream("config/log4j.properties");  
+//            props.load(fis);  
+//            PropertyConfigurator.configure(props);//装入log4j配置信息  
+//        } catch (Exception e) {  
+//            e.printStackTrace();  
+//        } finally {  
+//            if (fis != null)  
+//                try {  
+//                    fis.close();  
+//                } catch (IOException e) {  
+//                    e.printStackTrace();  
+//                }  
+//            fis = null;  
+//        }  
+//    }
     
     //  相对路径的配置文件加载  
     public static void test2(){  
         //这里需要注意路径中不要出现中文和空格，如果存在中文，请使用url转码  
-        ConfigurationSource source;  
+    	ConfigurationSource source;  
         try {
               
             // 使用System.getProperty  

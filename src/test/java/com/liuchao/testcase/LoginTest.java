@@ -22,7 +22,7 @@ public class LoginTest {
 	private Login login;
 	@DataProvider(name = "loginParams")
 	public Object[][] loginParams(){
-		return new Object[][]{{"li","1111","用户名或密码错误"},{"li","","请输入登录密码！"},{"","123456","请输入登录账户！"}};
+		return new Object[][]{{"li","1111","用户名或密码错误"},{"li","","用户名或密码错误"},{"","123456","用户名或密码错误"}};
 	}
 
 	@BeforeClass
@@ -51,8 +51,8 @@ public class LoginTest {
 	@Parameters({ "username", "pwd" })
 	public void login(String username,String pwd) throws Exception {
 		login.login(username, pwd);
-		String tip = new BasePage(driver, "mainPage").getText("客服热线");
-		Assert.assertEquals(tip, "客服热线：0755-2309674");
+		String tip = new BasePage(driver, "minePage").getText("修改密码");
+		Assert.assertEquals(tip, "修改密码");
 
 	}
 	
