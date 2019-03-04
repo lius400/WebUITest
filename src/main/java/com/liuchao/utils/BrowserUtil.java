@@ -2,6 +2,7 @@ package com.liuchao.utils;
 
 import java.util.concurrent.TimeUnit;
 
+import com.gargoylesoftware.htmlunit.BrowserVersion;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -74,7 +75,9 @@ public class BrowserUtil {
 	 * @author liuc
 	 */
 	public static WebDriver htmlUnitDriver(long sec) {
-		driver = new HtmlUnitDriver();
+//		driver = new HtmlUnitDriver();
+		HtmlUnitDriver driver = new HtmlUnitDriver(BrowserVersion.FIREFOX_60);
+		driver.setJavascriptEnabled(true);//允许JS操作
 		driver.manage().timeouts().implicitlyWait(sec, TimeUnit.SECONDS);
 		return driver;
 	}
