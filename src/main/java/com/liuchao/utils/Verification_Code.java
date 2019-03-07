@@ -78,28 +78,28 @@ public class Verification_Code {
    }
    
    
-	public static void main(String[] args) throws IOException {
-		
-		
-		SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
-	    String driverpath = System.getProperty("user.dir")+"\\chromedriver.exe";
-	    System.out.println("项目路径："+driverpath);
-		System.setProperty("webdriver.chrome.driver",driverpath);
-	    
-		Date date_now = new Date();
-		String time = format.format(date_now.getTime());//这个就是把时间戳经过处理得到期望格式的时间
-		String filepath = System.getProperty("user.dir")+"\\Verification_Code"+time+".jpg";
-		System.out.println("图片保存地址："+filepath);
-		WebDriver driver = new ChromeDriver();
-		driver.get("https://www.edianzu.com/login");
-		driver.manage().window().maximize();
-		WebElement element = driver.findElement(By.xpath(".//*[@id='codeImage']"));
-		String Attribute = element.getAttribute("src");
-		System.out.println("图片URL:"+Attribute);
-		
-		captureElement(driver,element,filepath);
-		driver.quit();
-		System.out.println("验证码图片以保存");
-	}
+//	public static void main(String[] args) throws IOException {
+//
+//
+//		SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
+//	    String driverpath = System.getProperty("user.dir")+"\\chromedriver.exe";
+//	    System.out.println("项目路径："+driverpath);
+//		System.setProperty("webdriver.chrome.driver",driverpath);
+//
+//		Date date_now = new Date();
+//		String time = format.format(date_now.getTime());//这个就是把时间戳经过处理得到期望格式的时间
+//		String filepath = System.getProperty("user.dir")+"\\Verification_Code"+time+".jpg";
+//		System.out.println("图片保存地址："+filepath);
+//		WebDriver driver = new ChromeDriver();
+//		driver.get("https://www.edianzu.com/login");
+//		driver.manage().window().maximize();
+//		WebElement element = driver.findElement(By.xpath(".//*[@id='codeImage']"));
+//		String Attribute = element.getAttribute("src");
+//		System.out.println("图片URL:"+Attribute);
+//
+//		captureElement(driver,element,filepath);
+//		driver.quit();
+//		System.out.println("验证码图片以保存");
+//	}
 
 }
