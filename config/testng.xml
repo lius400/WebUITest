@@ -4,7 +4,7 @@
 <suite name="Suite2">
     <parameter name="username" value="shiming" />
 	<parameter name="pwd" value="123456" />
-	<parameter name="browserDriverUrl" value="D:\eclipse-workspace\WebUITest\driver\chromedriver.exe"/>
+	<parameter name="browserDriverUrl" value="/driver/chromedriver.exe"/>
 	<parameter name="url" value="http://stage.mes.edianzu.cn/login.jsp"/>
 	<test name="test">
 		<classes>
