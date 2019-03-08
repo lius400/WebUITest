@@ -2,6 +2,7 @@ package com.liuchao.utils;
 
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -30,33 +31,56 @@ import org.openqa.selenium.TakesScreenshot;
 public class Verification_Code {
 	
     //元素截图  
-   public static void captureElement(WebDriver driver, WebElement element, String path){
-       // 截图整个页面 
-       File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-       try {
-           // 获得元素的高度和宽度  
-           int width = element.getSize().getWidth();
-           int height = element.getSize().getHeight();
-           // 创建一个矩形使用上面的高度和宽度 
-           Rectangle rect = new Rectangle(width, height);
-           // 得到元素的坐标 
-           Point p = element.getLocation();
-           BufferedImage img = ImageIO.read(srcFile);
-           BufferedImage dest = img.getSubimage(p.getX(), p.getY(), rect.width,rect.height);
-           // 存为jpg格式  
-           ImageIO.write(dest, "jpg", srcFile);
-           Thread.sleep(1000);
-           FileUtils.copyFile(srcFile, new File(path));
-       } catch (Exception e) {
-           e.printStackTrace();
-       }  
-   }  
+//   public static void captureElement(WebDriver driver, WebElement element, String path){
+//       // 截图整个页面
+//       File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+//       try {
+//           // 获得元素的高度和宽度
+//           int width = element.getSize().getWidth();
+//           int height = element.getSize().getHeight();
+//           // 创建一个矩形使用上面的高度和宽度
+//           Rectangle rect = new Rectangle(width, height);
+//           // 得到元素的坐标
+//           Point p = element.getLocation();
+//           BufferedImage img = ImageIO.read(srcFile);
+//           BufferedImage dest = img.getSubimage(p.getX(), p.getY(), rect.width,rect.height);
+//           // 存为jpg格式
+//           ImageIO.write(dest, "jpg", srcFile);
+//           Thread.sleep(1000);
+//           FileUtils.copyFile(srcFile, new File(path));
+//       } catch (Exception e) {
+//           e.printStackTrace();
+//       }
+//   }
 
-   public static String Distin_Code(String image_Path)
+   public static String Get_Verification_Code(WebDriver driver, WebElement element)
+   {
+       String Distin_Code = null;
+       SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
+       Date date_now = new Date();
+       String time = format.format(date_now.getTime());//这个就是把时间戳经过处理得到期望格式的时间
+       String filepath = System.getProperty("user.dir")+"\\Verification_Code"+time+".jpg";
+       URL url = null;
+       File srcFile = new File(filepath);
+       String Imageurl = driver.getCurrentUrl()+element.getAttribute("src");
+       try {
+           url = new URL(Imageurl);
+           BufferedImage image = ImageIO.read(url);
+           ImageIO.write(image,"jpg", srcFile);
+//           FileUtils.copyFile(srcFile, new File(filepath));
+           Distin_Code = Distin_Code(image);
+       }
+       catch(Exception e){
+
+       }
+       return Distin_Code;
+   }
+
+   public static String Distin_Code(BufferedImage image)
    {
 //   	图形验证码识别
 	   String result = null;
-       File imageFile = new File(image_Path);  
+//       File imageFile = new File(image_Path);
        ITesseract instance = new Tesseract();  
 //       URL url = ClassLoader.getSystemResource("tessdata");
 //       String path = url.getPath().substring(1);
@@ -66,7 +90,7 @@ public class Verification_Code {
        // 默认是英文（识别字母和数字），如果要识别中文(数字 + 中文），需要制定语言包  
 //       instance.setLanguage("chi_sim");  
        try{
-           result = instance.doOCR(imageFile);  
+           result = instance.doOCR(image);
            System.out.println(result);
        }catch(TesseractException e){
            System.out.println(e.getMessage());
