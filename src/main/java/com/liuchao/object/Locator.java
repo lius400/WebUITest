@@ -18,7 +18,7 @@ public class Locator {
 	 *
 	 */
 	public enum ByType {
-		by, xpath, linkText, id, name, className
+		by, xpath, linkText, id, name, className,css
 	}
 
 	public Locator() {

@@ -94,6 +94,8 @@ public class XMLUtil {
 			byType = ByType.name;
 		} else if (type.equalsIgnoreCase("className")) {
 			byType = ByType.className;
+		} else if (type.equalsIgnoreCase("css")){
+			byType = ByType.css;
 		}
 		return byType;
 	}
