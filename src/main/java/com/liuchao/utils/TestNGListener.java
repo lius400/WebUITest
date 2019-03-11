@@ -34,7 +34,7 @@ public class TestNGListener extends TestListenerAdapter {
 		super.onTestFailure(tr);
 		ScreenShot screenShot = new ScreenShot(driver);  
 		//获取当前project目录
-		String path = System.getProperty("user.dir").replace("\\", "/");
+		String path = ClassLoader.getSystemResource("").toString().replace("\\", "/");
 		//加上时间戳以区分截图
 		String curTime = TimeUtil.getDate("yyyyMMddHHmmss");
 		screenShot.saveScreenShot(path + "/img/", "testFail" + curTime + ".png");

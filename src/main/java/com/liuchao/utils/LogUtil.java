@@ -50,8 +50,8 @@ public class LogUtil {
     	ConfigurationSource source;  
         try {
               
-            // 使用System.getProperty  
-            String config=System.getProperty("user.dir");
+            // 使用ClassLoader.getSystemResource
+            String config = ClassLoader.getSystemResource("").toString();
             System.out.println(config+"\\config\\log4j2.xml");
             File configFile = new File(config+"\\config\\log4j2.xml");
             source = new ConfigurationSource(new FileInputStream(configFile),configFile);  
@@ -86,8 +86,8 @@ public class LogUtil {
 		      source = new ConfigurationSource(new FileInputStream(new File(url.getPath())),url);
 		      Configurator.initialize(null, source);	
 		      
-		      //方法2 使用System.getProperty
-		      String config=System.getProperty("user.dir");
+		      //方法2 使用ClassLoader.getSystemResource
+		      String config=ClassLoader.getSystemResource("").toString();
 		      source = new ConfigurationSource(new FileInputStream(config+"\\src\\com\\liuchao\\config\\Log4j.properties"));
 		      Configurator.initialize(null, source);
 		}

@@ -59,7 +59,7 @@ public class Verification_Code {
        SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
        Date date_now = new Date();
        String time = format.format(date_now.getTime());//这个就是把时间戳经过处理得到期望格式的时间
-       String filepath = System.getProperty("user.dir")+"\\Verification_Code"+time+".jpg";
+       String filepath = ClassLoader.getSystemResource("")+"/Verification_Code"+time+".jpg";
        URL url = null;
        File srcFile = new File(filepath);
        String Imageurl = driver.getCurrentUrl()+element.getAttribute("src");
@@ -84,7 +84,7 @@ public class Verification_Code {
        ITesseract instance = new Tesseract();  
 //       URL url = ClassLoader.getSystemResource("tessdata");
 //       String path = url.getPath().substring(1);
-       String path = System.getProperty("user.dir")+"\\tessdata";
+       String path = ClassLoader.getSystemResource("")+"/tessdata";
 //       System.out.println("tessdata地址："+path);
        instance.setDatapath(path);
        // 默认是英文（识别字母和数字），如果要识别中文(数字 + 中文），需要制定语言包  
@@ -97,7 +97,7 @@ public class Verification_Code {
        }
 	return result;
       
-//       String path1 = System.getProperty("user.dir");
+//       String path1 = ClassLoader.getSystemResource("").toString();
 //       System.out.println("项目路径："+path1);
    }
    
@@ -106,13 +106,13 @@ public class Verification_Code {
 //
 //
 //		SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
-//	    String driverpath = System.getProperty("user.dir")+"\\chromedriver.exe";
+//	    String driverpath = ClassLoader.getSystemResource("")+"\\chromedriver.exe";
 //	    System.out.println("项目路径："+driverpath);
 //		System.setProperty("webdriver.chrome.driver",driverpath);
 //
 //		Date date_now = new Date();
 //		String time = format.format(date_now.getTime());//这个就是把时间戳经过处理得到期望格式的时间
-//		String filepath = System.getProperty("user.dir")+"\\Verification_Code"+time+".jpg";
+//		String filepath = ClassLoader.getSystemResource("")+"/Verification_Code"+time+".jpg";
 //		System.out.println("图片保存地址："+filepath);
 //		WebDriver driver = new ChromeDriver();
 //		driver.get("https://www.edianzu.com/login");
