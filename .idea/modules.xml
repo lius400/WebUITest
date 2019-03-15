@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/WebUITest.iml" filepath="$PROJECT_DIR$/WebUITest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../first-hibernate/first-hibernate.iml" filepath="$PROJECT_DIR$/../first-hibernate/first-hibernate.iml" />
     </modules>
   </component>
 </project>

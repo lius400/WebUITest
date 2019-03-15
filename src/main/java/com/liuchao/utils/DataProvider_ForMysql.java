@@ -1,11 +1,13 @@
 package com.liuchao.utils;
 
+import lombok.extern.slf4j.Slf4j;
 import java.sql.*;
 import java.util.*;
 
 /**
  *数据库链接配置
  */
+@Slf4j
 public class DataProvider_ForMysql implements Iterator<Object[]> {
 
     ResultSet result;  //结果集
@@ -16,6 +18,7 @@ public class DataProvider_ForMysql implements Iterator<Object[]> {
     public DataProvider_ForMysql(String ip, String port, String baseName,
                                  String userName, String password, String sql) throws ClassNotFoundException, SQLException {
 
+        log.info("获取连接");
         Class.forName("com.mysql.cj.jdbc.Driver");
         String url = String.format("jdbc:mysql://%s:%s/%s?serverTimezone=UTC", ip, port, baseName);
         //获取连接

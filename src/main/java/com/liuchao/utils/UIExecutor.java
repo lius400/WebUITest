@@ -23,7 +23,9 @@ public interface UIExecutor {
 	//切换页面
 	public void switchWindow(String title);
 	//切换frame
-	public void switchFrame(Locator locator);	
+	public void switchFrame(Locator locator);
+	//跳出frame
+	public void jump_outFrame();
 	//智能等待
 	public void waitElement(Locator locator);
 }

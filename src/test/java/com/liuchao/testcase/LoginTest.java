@@ -1,6 +1,7 @@
 package com.liuchao.testcase;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
@@ -27,10 +28,11 @@ public class LoginTest {
 
 	@BeforeClass
 	@Parameters({"browserDriverUrl","url"})
+//	public void beforeClass(String browserDriverUrl,String url) {
+//		driver = BrowserUtil.chrome(browserDriverUrl,30);
 	public void beforeClass(String browserDriverUrl,String url) {
-		driver = BrowserUtil.chrome(browserDriverUrl,30);
 		//在内存中运行，不用启用浏览器，使用该方法无法使用截图功能
-		//driver = new HtmlUnitDriver();
+		driver = BrowserUtil.htmlUnitDriver(30);
 		driver.get(url);
 	}
 	@BeforeMethod

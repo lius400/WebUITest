@@ -1,6 +1,7 @@
 package com.liuchao.utils;
 
 import java.util.Set;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
@@ -15,9 +16,10 @@ import com.liuchao.object.Locator;
  * 
  * @author Liuc
  */
+@Slf4j
 public class UIExecutorImpl implements UIExecutor {
 	private WebDriver driver;
-	public Logger logger = LogManager.getLogger(UIExecutorImpl.class);
+//	public Logger logger = LogManager.getLogger(UIExecutorImpl.class);
 
 	public UIExecutorImpl(WebDriver driver) {
 		this.driver = driver;
@@ -133,6 +135,16 @@ public class UIExecutorImpl implements UIExecutor {
 	 */
 	public void switchFrame(Locator locator) {
 		driver.switchTo().frame(locator.getAddress());
+	}
+
+	/**
+	 * 跳出frame
+	 *
+	 * @author Liuc
+	 */
+	@Override
+	public void jump_outFrame(){
+		driver.switchTo().defaultContent();
 	}
 
 	/**

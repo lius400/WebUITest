@@ -1,5 +1,6 @@
 package com.liuchao.utils;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -12,11 +13,12 @@ import org.testng.TestListenerAdapter;
  * 
  * @author liuc
  */
+@Slf4j
 public class TestNGListener extends TestListenerAdapter {
 
 	private static WebDriver driver;
 
-	Logger logger = LogManager.getLogger(TestNGListener.class);
+//	Logger logger = LogManager.getLogger(TestNGListener.class);
 
 	public static void setDriver(WebDriver driver) {
 		TestNGListener.driver = driver;
@@ -24,13 +26,13 @@ public class TestNGListener extends TestListenerAdapter {
 
 	@Override
 	public void onTestSuccess(ITestResult tr) {
-		logger.info("Test Success");
+		log.info("Test Success");
 		super.onTestSuccess(tr);
 	}
 
 	@Override
 	public void onTestFailure(ITestResult tr) {
-		logger.error("Test Failure");
+		log.error("Test Failure");
 		super.onTestFailure(tr);
 		ScreenShot screenShot = new ScreenShot(driver);  
 		//获取当前project目录
@@ -42,19 +44,19 @@ public class TestNGListener extends TestListenerAdapter {
 
 	@Override
 	public void onTestSkipped(ITestResult tr) {
-		logger.error("Test Skipped");
+		log.error("Test Skipped");
 		super.onTestSkipped(tr);
 	}
 
 	@Override
 	public void onStart(ITestContext testContext) {
-		logger.info("Test Start");
+		log.info("Test Start");
 		super.onStart(testContext);
 	}
 
 	@Override
 	public void onFinish(ITestContext testContext) {
-		logger.info("Test Finish");
+		log.info("Test Finish");
 		super.onFinish(testContext);
 	}
 

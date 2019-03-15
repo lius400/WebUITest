@@ -3,6 +3,7 @@ package com.liuchao.utils;
 import java.io.File;
 import java.io.IOException;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 import org.apache.commons.io.FileUtils;
@@ -10,6 +11,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
+@Slf4j
 public class ScreenShot {
 	private WebDriver driver;
 
@@ -28,7 +30,8 @@ public class ScreenShot {
 	 * @author liuc
 	 */
 	public void saveScreenShot(String path, String shotName) {
-		Logger logger = LogManager.getLogger(ScreenShot.class);
+		log.info("保存截图");
+//		Logger logger = LogManager.getLogger(ScreenShot.class);
 		//TakesScreenshot接口是依赖于具体的浏览器API操作的，所以在HTMLUnit Driver中并不支持该操作
 		TakesScreenshot tScreenshot = (TakesScreenshot)driver;
 		// 截图
@@ -38,7 +41,7 @@ public class ScreenShot {
 			// 将截图复制到指定目录
 			FileUtils.copyFile(photo, shotFile);
 		} catch (IOException e) {
-			logger.error(getClass() + " 保存截图失败");
+			log.error(getClass() + " 保存截图失败");
 			e.printStackTrace();
 		}
 	}
