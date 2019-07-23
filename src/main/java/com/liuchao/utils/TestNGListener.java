@@ -34,12 +34,16 @@ public class TestNGListener extends TestListenerAdapter {
 	public void onTestFailure(ITestResult tr) {
 		log.error("Test Failure");
 		super.onTestFailure(tr);
-		ScreenShot screenShot = new ScreenShot(driver);  
-		//获取当前project目录
-		String path = ClassLoader.getSystemResource("").toString().replace("\\", "/");
-		//加上时间戳以区分截图
-		String curTime = TimeUtil.getDate("yyyyMMddHHmmss");
-		screenShot.saveScreenShot(path + "/img/", "testFail" + curTime + ".png");
+		String drivertype=driver.getClass().getName();
+		log.error(drivertype);
+		if(drivertype!= "org.openqa.selenium.htmlunit.HtmlUnitDriver"){
+			ScreenShot screenShot = new ScreenShot(driver);
+			//获取当前project目录
+			String path = ClassLoader.getSystemResource("").toString().replace("\\", "/");
+			//加上时间戳以区分截图
+			String curTime = TimeUtil.getDate("yyyyMMddHHmmss");
+			screenShot.saveScreenShot(path + "/img/", "testFail" + curTime + ".png");
+		}
 	}
 
 	@Override

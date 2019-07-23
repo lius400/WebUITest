@@ -6,12 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="first-hibernate" />
         <module name="WebUITest" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="first-hibernate" target="1.5" />
       <module name="WebUITest" target="1.5" />
     </bytecodeTargetLevel>
   </component>

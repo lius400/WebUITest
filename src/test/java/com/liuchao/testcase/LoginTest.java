@@ -23,7 +23,7 @@ public class LoginTest {
 	private Login login;
 	@DataProvider(name = "loginParams")
 	public Object[][] loginParams(){
-		return new Object[][]{{"li","1111","用户名或密码错误"},{"li","","用户名或密码错误"},{"","123456","用户名或密码错误"}};
+		return new Object[][]{{"li","1111","用户名或密码有误"},{"li","","用户名或密码有误"},{"","123456","用户名或密码有误"}};
 	}
 
 	@BeforeClass
@@ -55,10 +55,8 @@ public class LoginTest {
 		login.login(username, pwd);
 		String tip = new BasePage(driver, "minePage").getText("修改密码");
 		Assert.assertEquals(tip, "修改密码");
-
 	}
-	
-	
+
 	@AfterClass
 	public void afterClass() {
 

@@ -142,7 +142,6 @@ public class UIExecutorImpl implements UIExecutor {
 	 *
 	 * @author Liuc
 	 */
-	@Override
 	public void jump_outFrame(){
 		driver.switchTo().defaultContent();
 	}
