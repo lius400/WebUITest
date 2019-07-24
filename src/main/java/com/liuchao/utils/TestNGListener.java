@@ -18,7 +18,6 @@ public class TestNGListener extends TestListenerAdapter {
 
 	private static WebDriver driver;
 
-//	Logger logger = LogManager.getLogger(TestNGListener.class);
 
 	public static void setDriver(WebDriver driver) {
 		TestNGListener.driver = driver;

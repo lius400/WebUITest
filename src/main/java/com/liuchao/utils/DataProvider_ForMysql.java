@@ -49,7 +49,6 @@ public class DataProvider_ForMysql implements Iterator<Object[]> {
     }
 
 
-    @Override
     public boolean hasNext() {
         if(rowNum==0||curRowNo>=rowNum){
             return false;
@@ -58,7 +57,6 @@ public class DataProvider_ForMysql implements Iterator<Object[]> {
         }
     }
 
-    @Override
     public Object[] next() {
         Map<String,String> s=dataList.get(curRowNo);
         Object[] d=new Object[1];
@@ -67,7 +65,6 @@ public class DataProvider_ForMysql implements Iterator<Object[]> {
         return d;
     }
 
-    @Override
     public void remove() {
         throw new UnsupportedOperationException("remove unsupported");
     }
