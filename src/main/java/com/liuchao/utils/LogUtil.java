@@ -45,30 +45,30 @@ public class LogUtil {
 //    }
     
     //  相对路径的配置文件加载  
-    public static void test2(){  
-        //这里需要注意路径中不要出现中文和空格，如果存在中文，请使用url转码  
-    	ConfigurationSource source;  
-        try {
-              
-            // 使用ClassLoader.getSystemResource
-            String config = ClassLoader.getSystemResource("").toString();
-            System.out.println(config+"\\config\\log4j2.xml");
-            File configFile = new File(config+"\\config\\log4j2.xml");
-            source = new ConfigurationSource(new FileInputStream(configFile),configFile);  
-            Configurator.initialize(null, source);
-            
-//            logger = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);
-            logger = LogManager.getLogger(LogUtil.class);
-            logger.trace("trace...");
-            logger.debug("debug...");
-            logger.info("info...");
-            logger.warn("warn...");
-            logger.error("error...");
-            logger.fatal("fatal...");
-        } catch (Exception e) {  
-            e.printStackTrace();  
-        }  
-    }
+//    public static void test2(){
+//        //这里需要注意路径中不要出现中文和空格，如果存在中文，请使用url转码
+//    	ConfigurationSource source;
+//        try {
+//
+//            // 使用ClassLoader.getSystemResource
+//            String config = ClassLoader.getSystemResource("").toString();
+//            System.out.println(config+"\\config\\log4j2.xml");
+//            File configFile = new File(config+"\\config\\log4j2.xml");
+//            source = new ConfigurationSource(new FileInputStream(configFile),configFile);
+//            Configurator.initialize(null, source);
+//
+////            logger = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);
+//            logger = LogManager.getLogger(LogUtil.class);
+//            logger.trace("trace...");
+//            logger.debug("debug...");
+//            logger.info("info...");
+//            logger.warn("warn...");
+//            logger.error("error...");
+//            logger.fatal("fatal...");
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
     
 //    public static void main(String[] args) {
 //        test2();

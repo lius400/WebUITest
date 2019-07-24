@@ -81,8 +81,8 @@ public class BrowserUtil {
 	public static WebDriver htmlUnitDriver(long sec) {
 		log.info("启动htmlUnitDriver");
 //		driver = new HtmlUnitDriver();
-		HtmlUnitDriver driver = new HtmlUnitDriver();
-//		HtmlUnitDriver driver = new HtmlUnitDriver(BrowserVersion.CHROME);
+//		HtmlUnitDriver driver = new HtmlUnitDriver();
+		HtmlUnitDriver driver = new HtmlUnitDriver(BrowserVersion.CHROME,true);
 		driver.setJavascriptEnabled(true);//允许JS操作
 		driver.manage().timeouts().implicitlyWait(sec, TimeUnit.SECONDS);
 		return driver;
