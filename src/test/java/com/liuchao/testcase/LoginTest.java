@@ -46,6 +46,7 @@ public class LoginTest {
 	public void login02(String username,String pwd,String expectedTip) throws Exception{
 		login.login(username, pwd);
 		String tip = new BasePage(driver, "loginPage").getText("错误提示");
+        System.out.println(driver.manage().getCookieNamed("JSESSIONID").getValue());
 		Assert.assertEquals(tip, expectedTip);
 	}
 	

@@ -6,6 +6,7 @@
 	<parameter name="pwd" value="Lc123456" />
 	<parameter name="browserDriverUrl" value="/driver/chromedriver.exe"/>
 	<parameter name="url" value="http://stage-mes.edianzu.cn"/>
+	<parameter name="cookie" value="JSESSIONID" />
 	<test name="test">
 		<parameter  name="valueName" value="select * from new_model"/>
 		<classes>
