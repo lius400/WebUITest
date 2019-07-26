@@ -72,10 +72,7 @@ public class Verification_Code {
    {
 //   	图形验证码识别
 	   String result = null;
-//       File imageFile = new File(image_Path);
-       ITesseract instance = new Tesseract();  
-//       URL url = ClassLoader.getSystemResource("tessdata");
-//       String path = url.getPath().substring(1);
+       ITesseract instance = new Tesseract();
        String path = ClassLoader.getSystemResource("")+"/tessdata";
 //       System.out.println("tessdata地址："+path);
        instance.setDatapath(path);
