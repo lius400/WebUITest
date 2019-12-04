@@ -63,12 +63,12 @@ public class Verification_Code {
            Distin_Code = Distin_Code(image);
        }
        catch(Exception e){
-
+           log.error(e.toString());
        }
        return Distin_Code;
    }
 
-   public static String Distin_Code(BufferedImage image)
+   private static String Distin_Code(BufferedImage image)
    {
 //   	图形验证码识别
 	   String result = null;

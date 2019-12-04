@@ -50,11 +50,7 @@ public class DataProvider_ForMysql implements Iterator<Object[]> {
 
 
     public boolean hasNext() {
-        if(rowNum==0||curRowNo>=rowNum){
-            return false;
-        }else{
-            return true;
-        }
+        return rowNum != 0 && curRowNo < rowNum;
     }
 
     public Object[] next() {

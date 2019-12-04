@@ -1,7 +1,8 @@
 package com.liuchao.testcase;
 
+import com.liuchao.utils.ExcelUtil;
+import com.liuchao.utils.TestData;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
@@ -17,13 +18,19 @@ import com.liuchao.object.BasePage;
 import com.liuchao.utils.BrowserUtil;
 import com.liuchao.utils.TestNGListener;
 
+import java.util.ArrayList;
+
 @Listeners({TestNGListener.class})
 public class LoginTest {
 	private WebDriver driver;
 	private Login login;
 	@DataProvider(name = "loginParams")
-	public Object[][] loginParams(){
-		return new Object[][]{{"li","1111","用户名或密码有误"},{"li","","用户名或密码有误"},{"","123456","用户名或密码有误"}};
+	public Object[] loginParams(){
+		ArrayList<TestData> userdata = ExcelUtil.getTestData();
+		TestData[] userdataA = new TestData[userdata.size()];
+		userdata.toArray(userdataA);
+		return userdataA;
+//		return new Object[][]{{"li","1111","用户名或密码有误"},{"li","","用户名或密码有误"},{"","123456","用户名或密码有误"}};
 	}
 
 	@BeforeClass

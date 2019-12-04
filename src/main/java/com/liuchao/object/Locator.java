@@ -28,7 +28,7 @@ public class Locator {
 	 * Locator构造器，默认定位类型By.xpath,等待时长3s
 	 * 
 	 * @author liuc
-	 * @param element
+	 * @param address
 	 */
 	public Locator(String address) {
 		this.address = address;
