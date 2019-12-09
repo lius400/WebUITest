@@ -8,14 +8,14 @@ import java.util.*;
  *数据库链接配置
  */
 @Slf4j
-public class DataProvider_ForMysql implements Iterator<Object[]> {
+public class MysqlUtil implements Iterator<Object[]> {
 
     ResultSet result;  //结果集
     List<Map<String, String>> dataList = new ArrayList<Map<String, String>>();  //生成存放结果集的list
     int rowNum=0;     //总行数
     int curRowNo=0;   //当前行数
 
-    public DataProvider_ForMysql(String ip, String port, String baseName,
+    public MysqlUtil(String ip, String port, String baseName,
                                  String userName, String password, String sql) throws ClassNotFoundException, SQLException {
 
         log.info("获取连接");

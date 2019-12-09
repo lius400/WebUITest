@@ -15,6 +15,10 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="org.apache.httpcomponents.core5:httpcore5:5.0-beta2" level="project" />
     <orderEntry type="library" name="org.apache.httpcomponents:httpmime:4.5.9" level="project" />
+    <orderEntry type="library" name="Maven: org.jxls:jxls-jexcel:1.0.9" level="project" />
+    <orderEntry type="library" name="Maven: org.jxls:jxls:2.6.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-jexl3:3.1" level="project" />
+    <orderEntry type="library" name="Maven: net.sourceforge.jexcelapi:jxl:2.6.10" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:8.0.15" level="project" />
     <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:3.6.1" level="project" />
     <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
