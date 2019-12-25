@@ -5,11 +5,15 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import com.liuchao.object.Locator;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * UIExecutor接口实现类
@@ -58,6 +62,40 @@ public class UIExecutorImpl implements UIExecutor {
 	public String getText(Locator locator) {
 		WebElement element = getElement(locator);
 		return element.getText();
+	}
+
+	public void selectRadioButton(Locator locator) {
+		WebElement element = getElement(locator);
+		element.click();
+	}
+
+	public void selectCheckbox(Locator locator) {
+		WebElement element = getElement(locator);
+		element.click();
+	}
+
+	public void acceptAlert(Boolean isAccept) {
+		Alert alert = driver.switchTo().alert();
+		if(isAccept){
+			alert.accept();
+		}
+		else{
+			alert.dismiss();
+		}
+
+	}
+
+	public void UploadFile(Locator locator, String fileName) {
+		WebElement FileUpload = getElement(locator);
+		String filePath = ClassLoader.getSystemResource("")+"/uploadFile/"+fileName;
+		FileUpload.sendKeys(filePath);
+	}
+
+	public void selectByValue(Locator locator, String value) {
+		// 找到下拉选择框的元素
+		Select select = new Select(getElement(locator));
+		// 选择对应的选择项
+		select.selectByValue(value);
 	}
 
 	/**
@@ -153,6 +191,24 @@ public class UIExecutorImpl implements UIExecutor {
 	 */
 	public void waitElement(Locator locator) {
 		// TODO Auto-generated method stub
+		new WebDriverWait(driver, locator.getWaitSec()).until(ExpectedConditions.presenceOfElementLocated(byType(locator)));
 
+	}
+
+	public By byType(Locator locator) {
+		switch (locator.getByType()){
+			case id:
+				return By.id(locator.getAddress());
+			case name:
+				return By.name(locator.getAddress());
+			case css:
+				return By.cssSelector(locator.getAddress());
+			case className:
+				return By.className(locator.getAddress());
+			case linkText:
+				return  By.linkText(locator.getAddress());
+			default:
+				return By.xpath(locator.getAddress());
+		}
 	}
 }

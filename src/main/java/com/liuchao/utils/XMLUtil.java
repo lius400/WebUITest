@@ -3,6 +3,8 @@ package com.liuchao.utils;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Iterator;
+
+import lombok.extern.slf4j.Slf4j;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
@@ -14,6 +16,7 @@ import org.dom4j.io.SAXReader;
 import com.liuchao.object.Locator;
 import com.liuchao.object.Locator.ByType;
 
+@Slf4j
 public class XMLUtil {
 
 	/**
@@ -26,11 +29,12 @@ public class XMLUtil {
 	 *            页面名称
 	 */
 	public static HashMap<String, Locator> readXMLDocument(String xmlUrl, String pageName) throws Exception {
-		Logger logger = LogManager.getLogger(XMLUtil.class);
+//		Logger logger = LogManager.getLogger(XMLUtil.class);
 		HashMap<String, Locator> locatorMap = new HashMap<String, Locator>();
 		File file = new File(xmlUrl);
 		if (!file.exists()) {
-			logger.error("can't find " + xmlUrl);
+//			logger.error("can't find " + xmlUrl);
+			log.error("can't find " + xmlUrl);
 		} else {
 			// 创建SAXReader对象
 			SAXReader sr = new SAXReader();
@@ -43,7 +47,8 @@ public class XMLUtil {
 			// 遍历根节点
 			while (rootIte.hasNext()) {
 				Element page = (Element) rootIte.next();
-				logger.info("pageName is " + pageName);
+//				logger.info("pageName is " + pageName);
+				log.error("pageName is " + pageName);
 				// 忽略大小写比较
 				if (page.attribute(0).getValue().equalsIgnoreCase(pageName)) {
 					Iterator<?> pageIte = page.elementIterator();
