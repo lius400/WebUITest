@@ -51,7 +51,8 @@ public class Verification_Code {
        SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
        Date date_now = new Date();
        String time = format.format(date_now.getTime());//这个就是把时间戳经过处理得到期望格式的时间
-       String filepath = ClassLoader.getSystemResource("")+"/Verification_Code"+time+".jpg";
+       //工程的根目录
+       String filepath = ClassLoader.getSystemResource("/tessdata")+"/Verification_Code"+time+".jpg";
        URL url = null;
        File srcFile = new File(filepath);
        String Imageurl = driver.getCurrentUrl()+element.getAttribute("src");
