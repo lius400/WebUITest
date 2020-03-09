@@ -17,7 +17,7 @@ import com.liuchao.object.Locator;
 import com.liuchao.object.Locator.ByType;
 
 @Slf4j
-public class XMLUtil {
+public class ReadXMLUtil {
 
 	/**
 	 * 读取页面配置文件

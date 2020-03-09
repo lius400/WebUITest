@@ -1,6 +1,7 @@
 package com.liuchao.object;
 
 import java.util.HashMap;
+
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
@@ -10,7 +11,7 @@ import org.openqa.selenium.WebElement;
 import com.liuchao.utils.ScreenShot;
 //import com.liuchao.utils.LogUtil;
 import com.liuchao.utils.UIExecutorImpl;
-import com.liuchao.utils.XMLUtil;
+import com.liuchao.utils.ReadXMLUtil;
 
 /**
  * 基础页面类
@@ -18,21 +19,19 @@ import com.liuchao.utils.XMLUtil;
  * @author liuc
  */
 public class BasePage extends UIExecutorImpl {
-	private WebDriver driver;
-	private String pageName;// 页面名称
-	private String xmlPath;// 页面元素配置文件路径
 	private HashMap<String, Locator> locatorMap;//存储页面元素信息
 //	public LogUtil log;
 	private Logger logger = LogManager.getLogger(BasePage.class);
 
 	public BasePage(WebDriver driver, String pageName) throws Exception {
 		super(driver);
-		this.driver = driver;
-		this.pageName = pageName;
+		// 页面名称
 		// 获取page.xml路径，page.xml在同级目录
-		xmlPath = this.getClass().getResource("/").getPath() + "pageContent/page.xml";
+//		xmlPath = this.getClass().getResource("/").getPath() + "pageContent/page.xml";
+		// 页面元素配置文件路径
+		String xmlPath = BasePage.class.getClassLoader().getResource("pageContent/page.xml").toString();
 //		xmlPath = ClassLoader.getSystemResource("")+"pageContent/page.xml";
-		locatorMap = XMLUtil.readXMLDocument(xmlPath, pageName);
+		locatorMap = ReadXMLUtil.readXMLDocument(xmlPath, pageName);
 	}
 
 	public void click(String locatorName) {

@@ -29,7 +29,7 @@ public class LogUtil {
         try {
             // 从配置文件dbinfo.properties中读取配置信息
             props = new Properties();
-            fis = new FileInputStream("config/log4j.properties");
+            fis = new FileInputStream("log4j.properties");
             props.load(fis);
             PropertyConfigurator.configure(props);//装入log4j配置信息
         } catch (Exception e) {

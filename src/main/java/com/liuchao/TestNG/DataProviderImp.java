@@ -4,12 +4,13 @@ import com.liuchao.utils.ExcelUtil;
 import com.liuchao.utils.TestData;
 import org.testng.annotations.DataProvider;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class DataProviderImp {
 
     @DataProvider(name = "loginParams")
-    public Object[] loginParams(){
+    public Object[] loginParams() throws IOException {
         ArrayList<TestData> userdata = ExcelUtil.getTestData();
         TestData[] userdataA = new TestData[userdata.size()];
         userdata.toArray(userdataA);
