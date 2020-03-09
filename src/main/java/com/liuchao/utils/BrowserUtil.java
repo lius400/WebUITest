@@ -1,10 +1,12 @@
 package com.liuchao.utils;
 
+import java.io.File;
 import java.util.concurrent.TimeUnit;
 import lombok.extern.slf4j.Slf4j;
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -49,8 +51,15 @@ public class BrowserUtil {
 	public static WebDriver chrome(String browserDriverUrl, long sec) {
 		log.info("启动chrome浏览器");
 		System.setProperty("webdriver.chrome.driver", browserDriverUrl);
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
+		ChromeOptions options =new ChromeOptions();
+		//加载浏览器的静默模式，使浏览器在后台运行
+		options.addArguments("headless");
+		//无痕(隐身)浏览模式
+		options.addArguments("--incognito");
+		//最大化浏览器窗口
+		options.addArguments("start-maximized");
+		driver = new ChromeDriver(options);
+//		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(sec, TimeUnit.SECONDS);
 		return driver;
 	}

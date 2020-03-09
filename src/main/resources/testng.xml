@@ -2,6 +2,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="Suite2">
+	<listeners>
+		<listener class-name="com.liuchao.TestNG.TestNGRetryListener"/>
+		<listener class-name="com.liuchao.TestNG.TestNGListener"/>
+	</listeners>
     <parameter name="username" value="LC" />
 	<parameter name="pwd" value="Lc123456" />
 	<parameter name="browserDriverUrl" value="/driver/chromedriver.exe"/>
