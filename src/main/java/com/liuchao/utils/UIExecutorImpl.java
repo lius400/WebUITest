@@ -11,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import com.liuchao.object.Locator;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -134,15 +135,23 @@ public class UIExecutorImpl implements UIExecutor {
 	}
 
 	/**
-	 * 元素是否显式显示
+	 * 根据等待时间判断元素是否显式显示
 	 * 
 	 * @author Liuc
 	 */
-	public boolean isElementDisplayed(Locator locator) {
-		boolean flag = false;
-		WebElement element = getElement(locator);
-		flag = element.isDisplayed();
-		return flag;
+	public boolean isElementDisplayed(final Locator locator, int timeOut) {
+//		boolean flag = false;
+//		WebElement element = getElement(locator);
+//		flag = element.isDisplayed();
+//		return flag;
+
+		WebDriverWait wait = new WebDriverWait(driver,10,1);
+		return wait.until(new ExpectedCondition<Boolean>(){
+			public Boolean apply(WebDriver driver) {
+				WebElement element = getElement(locator);
+				return element.isDisplayed();
+			}
+		});
 	}
 
 	/**

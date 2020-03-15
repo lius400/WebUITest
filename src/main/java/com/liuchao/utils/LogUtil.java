@@ -27,7 +27,7 @@ public class LogUtil {
         Properties props = null;
         FileInputStream fis = null;
         try {
-            // 从配置文件dbinfo.properties中读取配置信息
+            // 从配置文件log4j.properties中读取配置信息
             props = new Properties();
             fis = new FileInputStream("log4j.properties");
             props.load(fis);

@@ -30,7 +30,7 @@ public interface UIExecutor {
 	//获取元素
 	public WebElement getElement(Locator locator) throws Exception;
 	//判断元素是否显示
-	public boolean isElementDisplayed(Locator locator);
+	public boolean isElementDisplayed(final Locator locator, int timeOut);
 	//切换页面
 	public void switchWindow(String title);
 	//切换frame

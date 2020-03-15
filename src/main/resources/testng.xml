@@ -8,7 +8,7 @@
 	</listeners>
     <parameter name="username" value="LC" />
 	<parameter name="pwd" value="Lc123456" />
-	<parameter name="browserDriverUrl" value="/driver/chromedriver.exe"/>
+	<parameter name="browserDriverUrl" value="/driver/chromedriver_linux64"/>
 	<parameter name="url" value="http://stage-mes.edianzu.cn"/>
 	<parameter name="cookie" value="JSESSIONID" />
 	<test name="test">

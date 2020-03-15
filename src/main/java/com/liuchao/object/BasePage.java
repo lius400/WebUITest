@@ -2,14 +2,15 @@ package com.liuchao.object;
 
 import java.util.HashMap;
 
+import net.bytebuddy.implementation.bytecode.Throw;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import com.liuchao.utils.ScreenShot;
-//import com.liuchao.utils.LogUtil;
 import com.liuchao.utils.UIExecutorImpl;
 import com.liuchao.utils.ReadXMLUtil;
 
@@ -27,7 +28,6 @@ public class BasePage extends UIExecutorImpl {
 		super(driver);
 		// 页面名称
 		// 获取page.xml路径，page.xml在同级目录
-//		xmlPath = this.getClass().getResource("/").getPath() + "pageContent/page.xml";
 		// 页面元素配置文件路径
 		String xmlPath = BasePage.class.getClassLoader().getResource("pageContent/page.xml").toString();
 //		xmlPath = ClassLoader.getSystemResource("")+"pageContent/page.xml";
@@ -50,8 +50,13 @@ public class BasePage extends UIExecutorImpl {
 		return super.getElement(getLocator(locatorName));
 	}
 
-	public boolean isElementDisplayed(String locatorName) {
-		return super.isElementDisplayed(getLocator(locatorName));
+	public boolean isElementDisplayed(String locatorName,int timeOut) {
+		try{
+			return super.isElementDisplayed(getLocator(locatorName),timeOut);
+		}
+		catch (TimeoutException e){
+			throw new TimeoutException("超时L !! " + timeOut + " 秒之后还没找到元素 [" + locatorName + "]"+e);
+		}
 	}
 
 	public void switchWindow(String title) {

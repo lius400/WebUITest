@@ -37,6 +37,7 @@ public class TestNGListener extends TestListenerAdapter {
 		super.onTestFailure(tr);
 		String drivertype=driver.getClass().getName();
 		log.error(drivertype);
+		//失败自动截图
 		if(!drivertype.equals("org.openqa.selenium.htmlunit.HtmlUnitDriver")){
 			ScreenShot screenShot = new ScreenShot(driver);
 			//获取当前project目录
