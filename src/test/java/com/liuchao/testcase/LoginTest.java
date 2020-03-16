@@ -1,6 +1,5 @@
 package com.liuchao.testcase;
 
-import com.liuchao.utils.TestData;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;

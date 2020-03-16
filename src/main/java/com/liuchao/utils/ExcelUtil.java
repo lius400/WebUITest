@@ -35,8 +35,6 @@ public class ExcelUtil {
             for (int j = 1; j < row_total; j++) {
                 Cell[] cells = sheet.getRow(j);
                 UserdataIterm[j-1] = new Object[]{cells[0].getContents(), cells[1].getContents(), cells[2].getContents()};
-//                data.add(new TestData(cells[0].getContents(),cells[1].getContents(),cells[2].getContents()));
-//                System.out.println("测试数据：用户名"+UserdataIterm[j][0]+",密码"+UserdataIterm[j][1]+",期望值"+UserdataIterm[j][2]);
             }
             wb.close();
         } catch (IOException e) {

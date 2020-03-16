@@ -1,7 +1,6 @@
 package com.liuchao.TestNG;
 
 import com.liuchao.utils.ExcelUtil;
-import com.liuchao.utils.TestData;
 import org.testng.annotations.DataProvider;
 
 import java.io.IOException;
