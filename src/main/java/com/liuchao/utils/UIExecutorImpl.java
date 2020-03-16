@@ -2,8 +2,6 @@ package com.liuchao.utils;
 
 import java.util.Set;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.LogManager;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;

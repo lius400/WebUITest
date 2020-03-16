@@ -3,8 +3,9 @@ package com.liuchao.object;
 import java.util.HashMap;
 
 import net.bytebuddy.implementation.bytecode.Throw;
-import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.LogManager;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -19,10 +20,10 @@ import com.liuchao.utils.ReadXMLUtil;
  * 
  * @author liuc
  */
+@Slf4j
 public class BasePage extends UIExecutorImpl {
 	private HashMap<String, Locator> locatorMap;//存储页面元素信息
-//	public LogUtil log;
-	private Logger logger = LogManager.getLogger(BasePage.class);
+//	private Logger logger = LoggerFactory.getLogger(BasePage.class);
 
 	public BasePage(WebDriver driver, String pageName) throws Exception {
 		super(driver);
