@@ -29,7 +29,7 @@ public class BasePage extends UIExecutorImpl {
 		// 页面名称
 		// 获取page.xml路径，page.xml在同级目录
 		// 页面元素配置文件路径
-		String xmlPath = BasePage.class.getClassLoader().getResource("pageContent/page.xml").toString();
+		String xmlPath = BasePage.class.getClassLoader().getResource("pageContent/page.xml").getPath();
 //		xmlPath = ClassLoader.getSystemResource("")+"pageContent/page.xml";
 		locatorMap = ReadXMLUtil.readXMLDocument(xmlPath, pageName);
 	}

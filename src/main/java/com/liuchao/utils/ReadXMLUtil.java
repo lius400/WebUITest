@@ -48,7 +48,7 @@ public class ReadXMLUtil {
 			while (rootIte.hasNext()) {
 				Element page = (Element) rootIte.next();
 //				logger.info("pageName is " + pageName);
-				log.error("pageName is " + pageName);
+				log.info("pageName is " + pageName);
 				// 忽略大小写比较
 				if (page.attribute(0).getValue().equalsIgnoreCase(pageName)) {
 					Iterator<?> pageIte = page.elementIterator();

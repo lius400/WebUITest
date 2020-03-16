@@ -2,6 +2,8 @@ package com.liuchao.utils;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
+
+import com.liuchao.TestNG.TestNGListener;
 import lombok.extern.slf4j.Slf4j;
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import org.openqa.selenium.WebDriver;
@@ -36,6 +38,7 @@ public class BrowserUtil {
 		driver = new InternetExplorerDriver(Options);
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(sec, TimeUnit.SECONDS);
+		TestNGListener.setDriver(driver);
 		return driver;
 	}
 
@@ -61,6 +64,7 @@ public class BrowserUtil {
 		driver = new ChromeDriver(options);
 //		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(sec, TimeUnit.SECONDS);
+		TestNGListener.setDriver(driver);
 		return driver;
 	}
 
@@ -79,6 +83,7 @@ public class BrowserUtil {
 		driver = new FirefoxDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(sec, TimeUnit.SECONDS);
+		TestNGListener.setDriver(driver);
 		return driver;
 	}
 
@@ -94,6 +99,7 @@ public class BrowserUtil {
 		HtmlUnitDriver driver = new HtmlUnitDriver(BrowserVersion.CHROME,true);
 		driver.setJavascriptEnabled(true);//允许JS操作
 		driver.manage().timeouts().implicitlyWait(sec, TimeUnit.SECONDS);
+		TestNGListener.setDriver(driver);
 		return driver;
 	}
 }

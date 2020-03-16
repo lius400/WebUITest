@@ -24,7 +24,7 @@ public class TestNGRetry implements IRetryAnalyzer {
         }
         else{
             result.setStatus(ITestResult.SUCCESS);
-            resetRetrycount(); // 每次跑完一条用例后，重置retryCount为0，这样dataProvider 数据驱动测试叶支持
+//            resetRetrycount(); // 每次跑完一条用例后，重置retryCount为0，这样dataProvider 数据驱动测试叶支持
         }
         return false;
     }

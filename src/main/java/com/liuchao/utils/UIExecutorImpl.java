@@ -128,6 +128,9 @@ public class UIExecutorImpl implements UIExecutor {
 		case linkText:
 			element = driver.findElement(By.linkText(address));
 			break;
+		case css:
+			element = driver.findElement(By.cssSelector(address));
+			break;
 		default:
 			break;
 		}

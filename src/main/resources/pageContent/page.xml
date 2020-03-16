@@ -16,7 +16,7 @@
 		<!--Locator lists -->
 		<locator type="id" timeOut="30" value="passport">登录输入账号框</locator>
 		<locator type="id" timeOut="30" value="password">登录输入密码框</locator>
-		<locator type="css" timeOut="30" value="#defaultForm > p:nth-child(4) > input[type=radio]:nth-child(2)">武汉厂区</locator>
+		<locator type="css" timeOut="30" value="#defaultForm > p:nth-child(4) > input[value=1]">武汉厂区</locator>
 		<locator type="id" timeOut="30" value="send">登录</locator>
 		<locator type="css" timeOut="30" value="#warnDiv > strong">错误提示</locator>
 	</page>

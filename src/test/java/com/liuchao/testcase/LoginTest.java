@@ -1,6 +1,5 @@
 package com.liuchao.testcase;
 
-import com.liuchao.utils.ExcelUtil;
 import com.liuchao.utils.TestData;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -51,11 +50,11 @@ public class LoginTest {
 
 	
 	@Test(dataProvider = "loginParams",dataProviderClass = DataProviderImp.class,description = "异常用户信息登录")
-	public void login02(String username,String pwd,String expectedTip) throws Exception{
+	public void login02(String username,String pwd,String Expect) throws Exception{
 		login.login(username, pwd);
 		String tip = new BasePage(driver, "loginPage").getText("错误提示");
         System.out.println(driver.manage().getCookieNamed("JSESSIONID").getValue());
-		Assert.assertEquals(tip, expectedTip);
+		Assert.assertEquals(tip,Expect);
 	}
 	
 	@Test(dependsOnMethods = "login02",description = "正常用户登录")

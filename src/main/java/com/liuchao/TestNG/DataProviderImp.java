@@ -10,11 +10,9 @@ import java.util.ArrayList;
 public class DataProviderImp {
 
     @DataProvider(name = "loginParams")
-    public Object[] loginParams() throws IOException {
-        ArrayList<TestData> userdata = ExcelUtil.getTestData();
-        TestData[] userdataA = new TestData[userdata.size()];
-        userdata.toArray(userdataA);
-        return userdataA;
+    public static Object[][] loginParams() throws IOException {
+        Object[][] UserdataIterm = ExcelUtil.getTestData();
+        return UserdataIterm;
 //		return new Object[][]{{"li","1111","用户名或密码有误"},{"li","","用户名或密码有误"},{"","123456","用户名或密码有误"}};
     }
 }
